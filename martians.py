@@ -6,9 +6,16 @@ box_locations = [random.randint(1,7), random.randint(1,7), random.randint(1,7)]
 box_weights = [200, 300, 213]
 total_weight = sum(box_weights)   
 while True:
-    print('Enter your guesses for where the boxes are buried (0-7km)')
-    guesses = input("Enter three numbers separated by spaces (e.g., 1 3 5): ").split()
-    guesses = list(map(int, guesses)) 
+    try:
+        print("Enter the kilometers where you think the cargo is buried:")
+        guess1 = int(input("First location (0-7): "))
+        guess2 = int(input("Second location (0-7): "))
+        guess3 = int(input("Third location (0-7): "))
+    except ValueError:
+        print("Please enter valid numbers between 0 and 7.")
+        continue
+    guesses = [guess1, guess2, guess3]
+
     if sorted(guesses) == sorted(box_locations):
         print('Congratulations, You found all the boxes!')
         break
