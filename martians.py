@@ -35,6 +35,7 @@ while True:
 
     if sorted(guesses) == sorted(box_locations):
         print(f"\nCongratulations, You found all the boxes!")
+        print(f"The boxes were at: {box_locations}")
         break
     else:
         
