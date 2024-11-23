@@ -1,5 +1,6 @@
 import random
 
+
 print("There are 3 boxes buried along a 7km path.")
 print("Your task is to guess the correct locations of the boxes.")
 print("If you guess wrong, the boxes will move to new locations.")
@@ -8,29 +9,23 @@ box_locations = random.sample(range(1, 8), 3)
 box_weights = [200, 300, 213]
 total_weight = sum(box_weights)
 
+def get_valid_guess(promt):
+    while True:
+        try:
+            guess = int(input(promt))
+            if 1 <= guess <= 7:
+                return guess
+            else:
+                print("Please enter a number between 1 and 7.")
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
 while True:
-    try:
-        print("Enter the kilometers where you think the cargo is buried (1-7):")
 
-        guess1 = int(input("First location: "))
-        if not (1 <= guess1 <= 7):
-            print("The location must be between 1 and 7. Please try again.\n")
-            continue
-
-        guess2 = int(input("Second location: "))
-        if not (1 <= guess2 <= 7):
-            print("The location must be between 1 and 7. Please try again.\n")
-            continue
-
-        guess3 = int(input("Third location: "))
-        if not (1 <= guess3 <= 7):
-            print("The location must be between 1 and 7. Please try again.\n")
-            continue
-
-    except ValueError:
-        print("Please enter valid numbers between 1 and 7.\n")
-        continue
-
+    guess1 = get_valid_guess("First location: ")
+    guess2 = get_valid_guess("Second location: ")
+    guess3 = get_valid_guess("Third location: ")
+    
     guesses = [guess1, guess2, guess3]
 
     if set(guesses) == set(box_locations):
