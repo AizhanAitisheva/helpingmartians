@@ -4,7 +4,7 @@ print("There are 3 boxes buried along a 7km path.")
 print("Your task is to guess the correct locations of the boxes.")
 print("If you guess wrong, the boxes will move to new locations.")
 
-box_locations = [random.randint(1, 7) for _ in range(3)]
+box_locations = [random.sample(1, 8),3 for _ in range(3)]
 box_weights = [200, 300, 213]
 total_weight = sum(box_weights)
 
@@ -42,4 +42,4 @@ while True:
         correct_guesses = len(set(guesses) & set(box_locations))
         print(f"\nYou guessed {correct_guesses} location(s) correctly.")
         print("Wrong guesses! The boxes are moving to new spots...")
-        box_locations = [random.randint(1, 7) for _ in range(3)]
+        box_locations = [random.sample(1, 8),3 for _ in range(3)]
