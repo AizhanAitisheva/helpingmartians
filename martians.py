@@ -9,11 +9,25 @@ while True:
     try:
         print("Enter the kilometers where you think the cargo is buried:")
         guess1 = int(input("First location (0-7): "))
+        if not (1 <= guess1 <= 7):
+            print("The location must be between 1 and 7. Please try again.\n")
+            continue
+
         guess2 = int(input("Second location (0-7): "))
+        if not (1 <= guess1 <= 7):
+            print("The location must be between 1 and 7. Please try again.\n")
+            continue
+
         guess3 = int(input("Third location (0-7): "))
+        if not (1 <= guess1 <= 7):
+            print("The location must be between 1 and 7. Please try again.\n")
+            continue
+
     except ValueError:
-        print("Please enter valid numbers between 0 and 7.")
+        print("Please enter valid numbers between 1 and 7.\n")
         continue
+
+        
     guesses = [guess1, guess2, guess3]
 
     if sorted(guesses) == sorted(box_locations):
